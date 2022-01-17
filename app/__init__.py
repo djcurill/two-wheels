@@ -1,17 +1,25 @@
 from flask import Flask
-from app.utils.config import Config
+from app.config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-app = Flask(__name__)
-app.config.from_object(Config)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+db = SQLAlchemy()
+migrate = Migrate()
 
-from app import routes
+
+def create_app(config=Config):
+    app = Flask(__name__)
+    app.config.from_object(config)
+
+    # intialize plugins
+    db.init_app(app)
+    migrate.init_app(app, db)
+
+    from app.specifications import bp as specs_bp
+
+    app.register_blueprint(specs_bp, url_prefix="/specs")
+
+    return app
+
+
 from app.models.bike_specs import Condition, WheelSize, FrameSize
-
-
-@app.shell_context_processor
-def define_context():
-    return {"db": db}
