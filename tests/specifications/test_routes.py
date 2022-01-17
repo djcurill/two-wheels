@@ -1,17 +1,22 @@
 import unittest
+
 import pytest
 from app.config import TestConfig
-from app.db import init as init_db, teardown
+from app.database import init_db, wipe_db
 from app import create_app
 
 
-class SpecificationTests(unittest.TestCase):
-    def setUp(self):
-        self.app = create_app(config=TestConfig)
-        init_db()
+@pytest.fixture
+def client():
+    app = create_app(config=TestConfig)
+    with app.test_client() as client:
+        with app.app_context():
+            wipe_db()
+            init_db()
+        yield client
 
-    def tearDown(self) -> None:
-        teardown()
 
-    def get_all_conditions_returns_200():
-        pass
+def test_get_conditions(client):
+    response = client.get("/specs")
+    print(response)
+    assert response.status_code == 200

@@ -1,12 +1,12 @@
 from app import db
-from app.models.bike_specs import Condition, FrameSize, WheelSize
+from app.specifications.models import Condition, FrameSize, WheelSize
 
 
-def teardown():
+def wipe_db():
     db.drop_all()
 
 
-def setup():
+def init_db():
     db.create_all()
 
     conditions = ["New - Dealer/Store", "New - Owner", "Excellent", "Good", "Poor"]

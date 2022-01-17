@@ -8,4 +8,4 @@ conditions_schema = ConditionSchema(many=True)
 @bp.route("/")
 def get_conditions():
     conditions = Condition.query.all()
-    return jsonify(conditions_schema.dump(conditions))
+    return jsonify(conditions_schema.dump(conditions)), 200
