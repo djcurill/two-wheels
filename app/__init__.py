@@ -1,9 +1,11 @@
 from flask import Flask
 from app.config import Config
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 
 db = SQLAlchemy()
+ma = Marshmallow()
 migrate = Migrate()
 
 

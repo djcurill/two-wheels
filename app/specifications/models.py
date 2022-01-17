@@ -1,4 +1,4 @@
-from app import db
+from app import db, ma
 
 
 class Condition(db.Model):
@@ -7,6 +7,14 @@ class Condition(db.Model):
 
     def __repr__(self):
         return f"<Condition(value = {self.value})>"
+
+
+class ConditionSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Condition
+
+    id = ma.auto_field()
+    value = ma.auto_field()
 
 
 class WheelSize(db.Model):
