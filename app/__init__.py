@@ -20,6 +20,3 @@ def create_app(config=Config):
     app.register_blueprint(specs_bp, url_prefix="/specs")
 
     return app
-
-
-from app.models.bike_specs import Condition, WheelSize, FrameSize
