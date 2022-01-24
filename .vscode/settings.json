@@ -3,5 +3,13 @@
   "python.linting.enabled": true,
   "python.formatting.blackPath": "black",
   "python.linting.lintOnSave": true,
-  "vsintellicode.python.completionsEnabled": true
+  "vsintellicode.python.completionsEnabled": true,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.linting.flake8Args": ["--max-line-length=120",],
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", "120"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }
