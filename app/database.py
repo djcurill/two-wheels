@@ -1,5 +1,6 @@
 from app import db
-from app.specifications.models import Condition, FrameSize, WheelSize
+from app.specifications.models import Brand, Condition, FrameSize, WheelSize
+from app.constants import brands, frame_sizes, conditions
 
 
 def wipe_db():
@@ -9,11 +10,9 @@ def wipe_db():
 def init_db():
     db.create_all()
 
-    conditions = ["New - Dealer/Store", "New - Owner", "Excellent", "Good", "Poor"]
     conditions = [Condition(value=val) for val in conditions]
     db.session.add_all(conditions)
 
-    frame_sizes = ["XS", "S", "M", "L", "XL"]
     frame_sizes = [FrameSize(value=val) for val in frame_sizes]
     db.session.add_all(frame_sizes)
 
@@ -21,4 +20,6 @@ def init_db():
     wheel_sizes = [WheelSize(value=val) for val in wheel_sizes]
     db.session.add_all(wheel_sizes)
 
+    brands = [Brand(value=val) for val in brands]
+    db.session.add_all(brands)
     db.session.commit()

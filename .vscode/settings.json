@@ -7,9 +7,9 @@
   "python.testing.pytestArgs": [
     "tests"
   ],
-  "python.linting.flake8Args": ["--max-line-length=120",],
+  "python.linting.flake8Args": ["--max-line-length=90",],
   "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["--line-length", "120"],
+  "python.formatting.blackArgs": ["--line-length", "90"],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true
 }
