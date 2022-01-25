@@ -39,3 +39,16 @@ class Brand(db.Model):
     __tablename__ = "brand"
     id = db.Column(db.Integer, primary_key=True)
     value = db.Column(db.String(50), nullable=False, unique=True)
+
+    def __repr__(self):
+        return f"<Brand(value = {self.value})>"
+
+
+class Model(db.Model):
+    __tablename__ = "model"
+    id = db.Column(db.Integer, primary_key=True)
+    brand_id = db.Column(db.Integer, db.ForeignKey("brand.id"), nullable=False)
+    value = db.Column(db.String(50), nullable=False)
+
+    def __repr__(self):
+        return f"<Model(brand_id = {self.brand_id}, value = {self.value})>"

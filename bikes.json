@@ -1,0 +1,20 @@
+{
+    "trek": ["fuel", "remedy", "slash"],
+    "pivot": ["mach","firebird","trail","switchblade"],
+    "santa cruz": ["bronson","nomad","megatower","tallboy","hightower","5010"],
+    "orbea": ["occam","rallon"],
+    "evil": ["offering","wreckoning","following","insurgent"],
+    "ibis": ["ripmo","ripley","mojo"],
+    "specialized": ["stumpjumper","enduro", "s-works enduro", "s-works stumpjumper"],
+    "norco": ["optic","sight","range","fluid"],
+    "giant": ["trance","reign", "talon"],
+    "kona": ["process","honzo"],
+    "yeti": ["sb150","sb115","sb130","sb140"],
+    "rocky mountain": ["altitude","slayer","instinct","thunderbolt"],
+    "commencal": ["meta", "clash"],
+    "juliana": ["furtado","joplin"],
+    "niner": ["rip","jet"],
+    "nukeproof": ["mega","scout"],
+    "scott": ["genius","ransom"],
+    "gt": ["force","sensor"]
+}

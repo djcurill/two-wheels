@@ -18,6 +18,10 @@ def create_app(config=Config):
     migrate.init_app(app, db)
 
     from app.specifications import bp as specs_bp
+
     app.register_blueprint(specs_bp, url_prefix="/specs")
 
     return app
+
+
+from app.specifications.models import Brand, Condition, FrameSize, WheelSize

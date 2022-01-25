@@ -1,6 +1,6 @@
 from app import db
-from app.specifications.models import Brand, Condition, FrameSize, WheelSize
-from app.constants import brands, frame_sizes, conditions, wheel_sizes
+from app.specifications.models import Brand, Condition, FrameSize, WheelSize, Model
+from app.constants import bikes, frame_sizes, conditions, wheel_sizes
 
 
 def wipe_db():
@@ -19,6 +19,14 @@ def init_db():
     wheel_size_models = [WheelSize(value=val) for val in wheel_sizes]
     db.session.add_all(wheel_size_models)
 
-    brand_models = [Brand(value=val) for val in brands]
+    brands = sorted(list(bikes.keys()))
+    brand_models = [Brand(id=i, value=val) for i, val in enumerate(brands)]
     db.session.add_all(brand_models)
+
+    bike_models = []
+    for brand in brand_models:
+        for model in bikes[brand.value]:
+            bike_models.append(Model(brand_id=brand.id, value=model))
+
+    db.session.add_all(bike_models)
     db.session.commit()

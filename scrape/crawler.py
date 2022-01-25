@@ -16,11 +16,12 @@ class PbCrawler:
 
     """
 
-    def __init__(self, qb: QueryBuilder, mods: list[callable], start: int = 0):
+    def __init__(self, qb: QueryBuilder, mods: list[callable], start: int = 1):
         self.qb = qb
         self.mods = mods
         self._scraper = partial(scrape_page, mods=mods)
         self.page = start
+        self.qb.upsert_query("page", self.page)
 
     @property
     def current_url(self):
@@ -31,7 +32,6 @@ class PbCrawler:
         self.qb.upsert_query("page", self.page)
 
     def scrape_current_page(self):
-        print(self.current_url)
         soup = soupify(self.current_url)
 
         if soup is None:
