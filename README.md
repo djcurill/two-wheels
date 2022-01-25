@@ -19,6 +19,7 @@ MVP milestone will include the following features:
 My [Issue Board](https://github.com/djcurill/two-wheels/issues) is pretty religiously maintained, so to see the current state of the project, I recommend starting there. If you are a KanBan lover, check out the [MVP Project Board](https://github.com/djcurill/two-wheels/projects/1) instead.
 
 # Assumptions & Limitations
+
 ## Bike Tiers
 Most of the assumptions lie around the complexity of the bike scraper. Large mountain bike companies offer far too many products (IMO), so there are
 so many different *tiers* to a single Bike Model. For example, Norco has C1, C2, C3 etc... to mark different tiers of their Carbon material (Rolls eyes). Scraping this
@@ -34,6 +35,25 @@ As you can see, the general pattern looks something like:
 > [Year] [Brand] [Model] [... total crapshoot follows]
 
 The analysis I use to identify popular models uses large numbers to my advantage. It uses regular expressions to split the title on a word match with a brand name. I then
-take the first item to follow after the Brand, and that is more often than not the model of the bike. 
+take the first item to follow after the Brand, and that is more often than not the model of the bike. Typically patterns will emerge from the noise, and I use the 
+marvellous `Counter` function from python to indentify most common bike models for each bike. The results of my analysis were then transcribed to the `bikes.json` file stored
+in the root directory.
 
 Future stages of this project will deal with handling the total shit show that follows the Bike Model of the title. Looking forward to it 🙈
+
+# Future Work / Wish List 
+
+## Front End
+No project is complete without a frontend. I look forward to building a React / Redux front end that enables a user to enter their bike specs and receive a 
+machine learning prediction that estimates the price of their bike.
+
+## Machine Learning & Data Scraping
+So many wishlists here, will have to break it down to bullet point form:
+1. Extract bike tier information from the title
+2. Key word extraction of bike descriptions using Natural Language Processing. Use NLP derived tags as model features.
+3. Computer vision problem on bike photos to detect bike quality factor 🤯 (maybe sell it to pink bike as a service hehe)
+
+Unfortunately, a lot of these goals will cost $$$ to fund data storage of photos, and unstructured text descriptions. :( 
+
+## CI / CD
+Setup CI / CD pipelines for unit and integration tests. Don't see this being too hard. 
