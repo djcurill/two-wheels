@@ -1,5 +1,5 @@
 # Two Wheels - 🚧 (Work in Progress)
-A Python code base responsible for scraping PinkBike Buy / Sell posts Bike data (sorry PinkBike). Information gathered from Bike data will be used to train a machine learning
+A Python code base responsible for scraping PinkBike Buy / Sell posts Bike data (sorry PinkBike). Information gathered from Bike posts will be used to train a machine learning
 model capable of estimating the price of a bike given some features. The goal of this project to eventually build a python backend (Flask) that can deliver Bike data 
 via RESTful API and offer machine learning predictions given a set of bike specs. 
 
@@ -17,6 +17,17 @@ MVP milestone will include the following features:
 - 🔲 Functioning FLASK app with a single endpoint for POST machine learning predictions
 
 My [Issue Board](https://github.com/djcurill/two-wheels/issues) is pretty religiously maintained, so to see the current state of the project, I recommend starting there. If you are a KanBan lover, check out the [MVP Project Board](https://github.com/djcurill/two-wheels/projects/1) instead.
+
+With an MVP release, the machine learning model will use the following set of features to predict the price:
+- The year of manufacturing
+- The Brand
+- The model
+- The condition / quality
+- The material
+- The frame size (should have no impact to be honest)
+- The wheel size
+- The front suspension travel
+- The rear suspension travel
 
 # Assumptions & Limitations
 
@@ -40,6 +51,10 @@ marvellous `Counter` function from python to indentify most common bike models f
 in the root directory.
 
 Future stages of this project will deal with handling the total shit show that follows the Bike Model of the title. Looking forward to it 🙈
+
+## Bike Upgrades
+Many pedal heads will totally deck out their rides with the latest and greatest gear. My current model will not handle that edge case. Will need to build out NLP use cases
+that extract key words from titles and descriptions to determine the upgrades / modifications riders have applied to their kit.
 
 # Future Work / Wish List 
 
