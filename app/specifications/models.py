@@ -48,6 +48,7 @@ class Model(db.Model):
     __tablename__ = "model"
     id = db.Column(db.Integer, primary_key=True)
     brand_id = db.Column(db.Integer, db.ForeignKey("brand.id"), nullable=False)
+    brand = db.relationship("Brand", lazy=True)
     value = db.Column(db.String(50), nullable=False)
 
     def __repr__(self):
