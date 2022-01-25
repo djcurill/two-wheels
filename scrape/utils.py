@@ -1,5 +1,7 @@
 from typing import Iterable
 import re
+import requests
+from bs4 import BeautifulSoup
 
 
 def first(y: Iterable, cond: callable):
@@ -13,3 +15,8 @@ def match_text(text: str) -> callable:
 
 def to_dict(items: list[tuple]) -> dict:
     return {key: val for (key, val) in items}
+
+
+def soupify(url):
+    page = requests.get(url)
+    return BeautifulSoup(page.text, "html.parser") if page.ok else None
